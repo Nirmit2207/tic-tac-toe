@@ -12,26 +12,58 @@
     width: 100px;
     height: 100px;
     vertical-align: top;
-    text-align: center;
-    padding-top: 37px;
     user-select: none;
+    font-size: 3.5rem;
 }
 
-.winner {
-    position: absolute;
+.sign {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
-.reset {
+.controls {
     text-align: center;
     margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
 }
 
-.reset button {
-    padding: 10px 15px;
+.controls button {
+    padding: 10px 18px;
     font-size: 1.2rem;
     border-radius: 15px;
     border: none;
     background-color: rgb(0, 0, 117);
     color: white;
     cursor: pointer;
+}
+
+.player {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.winner {
+    width: 100vw;
+    left: 0;
+    position: absolute;
+    top: 6rem;
+    text-align: center;
+}
+
+footer {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    font-size: 1.2rem;
+    bottom: 2rem;
+}
+
+footer a {
+    color: black;
 }

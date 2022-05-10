@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-const Winner = ({ data }) => {
+const Winner = ({ data, setFoundWinner }) => {
 
     const winCriteria = [
         [0, 1, 2], [3, 4, 5], [6, 7, 8],
@@ -15,15 +15,19 @@ const Winner = ({ data }) => {
             const two = winCriteria[i][1]
             const three = winCriteria[i][2]
             if (data[one] !== null && data[one] === data[two] && data[one] === data[three]) {
-                console.log(true)
                 return data[one];
             }
         }
-        console.log(false)
         return null
     }
 
     const winner = isWinner()
+    useEffect(() => {
+        if(winner !== null) {
+            setFoundWinner(true)
+        }
+    })
+    
 
     return (
         <div className='winner'>{winner !== null && (<h1>Winner: {winner}</h1>)}</div>

@@ -1,13 +1,18 @@
 import React from 'react'
 
-const Tile = ({ num, sign, clickHandler }) => {
+const Tile = ({ num, sign, clickHandler, foundWinner }) => {
 
-  // const clickHandler = () => {
-  //   console.log(num)
-  // }
+  const tileClicked = () => {
+    if(foundWinner) return
+    clickHandler(num)
+  }
 
   return (
-    <div className='tile' onClick={() => clickHandler(num)}>{sign[num]}</div>
+    <div className='tile' onClick={tileClicked}>
+      <div className="sign">
+        {sign[num]}
+      </div>
+    </div>
   )
 }
 
