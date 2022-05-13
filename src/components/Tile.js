@@ -2,13 +2,9 @@ import React from 'react'
 
 const Tile = ({ num, data, clickHandler }) => {
 
-  const tileClicked = () => {
-    clickHandler(num)
-  }
-
   return (
-    <div className='tile' onClick={tileClicked}>
-      <div className="sign">
+    <div className='tile' onClick={() => clickHandler(num)}>
+      <div className={`sign ${data[num]}`}>
         {data[num]}
       </div>
     </div>

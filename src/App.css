@@ -1,12 +1,32 @@
-#root {
-    height: 100vh;
+@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap&text=Ticaoe');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap&text=XO');
+
+div.app {
+    min-height: 100vh;
     width: 100vw;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     background: rgb(245, 132, 19);
     background: linear-gradient(rgba(245, 132, 19, 1) 0%, rgba(243, 77, 97, 1) 100%);
 }
+
+
+.header {
+    font-family: 'Grape Nuts', cursive;
+    color: white;
+    font-size: 3rem;
+    text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.player {
+    font-size: 2rem;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
 
 .board {
     display: grid;
@@ -21,14 +41,14 @@
     width: 100px;
     height: 100px;
     user-select: none;
-    font-size: 3.5rem;
-    background-color: #dfdfdf;
+    font-size: 4.5rem;
+    background-color: #ffffff;
     cursor: pointer;
 }
 
 @media (hover: hover) {
     .board .tile:hover {
-        background-color: #ffffff;
+        background-color: #dfdfdf;
     }
 }
 
@@ -38,13 +58,29 @@
     width: 100%;
     justify-content: center;
     align-items: center;
+    text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Fredoka One', cursive;
+
 }
 
+.sign.X {
+    background: -webkit-linear-gradient(rgba(245, 132, 19, 1) 0%, rgba(243, 77, 97, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sign.O {
+    background: -webkit-linear-gradient(rgb(0, 255, 4) 0%, rgb(3, 174, 5) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
 .controls {
-    text-align: center;
-    margin-bottom: 2rem;
     display: flex;
     justify-content: space-between;
+    text-align: center;
+    width: 308px;
 }
 
 .controls button {
@@ -61,7 +97,7 @@
     .controls button:hover {
         transform: scale(1.1);
         box-shadow: 4px 8px 15px rgba(0, 0, 0, 0.3);
-        transition: all 0.1s linear 0s;
+        transition: all 0.05s linear 0s;
     }
 }
 
@@ -71,23 +107,13 @@
     transition: all 0.05s linear 0s;
 }
 
-.player {
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 2rem;
-    color: white;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-}
 
 footer {
-    position: absolute;
     text-align: center;
-    width: 100%;
-    left: 0;
     font-size: 1.2rem;
-    bottom: 1rem;
     color: white;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15px;
 }
 
 footer a {

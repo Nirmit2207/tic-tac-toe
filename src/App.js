@@ -10,6 +10,10 @@ const App = () => {
     const [winner, setWinner] = useState(null)
     const [history, setHistory] = useState([])
 
+    useEffect(() => {
+        setWinner(findWinner(data))
+    }, [data])
+
     const clickHandler = (num) => {
 
         if (data[num] !== null || winner !== null) return
@@ -23,11 +27,6 @@ const App = () => {
         setHistory(history => [...history, num])
 
     }
-
-    useEffect(() => {
-        setWinner(findWinner(data))
-    }, [data])
-
 
     const resetBoard = () => {
         setData(Array(9).fill(null))
@@ -51,25 +50,27 @@ const App = () => {
     }
 
     return (
-        <div>
+        <div className='app'>
+
+            <h1 className='header'>Tic Tac Toe</h1>
+
+            {
+                winner !== null ?
+                    (<div className="player">
+                        WINNER: {winner}
+                    </div>) :
+                    (<div className="player">
+                        PLAYER: {isXnext ? 'X' : 'O'}
+                    </div>)
+
+            }
+
+            <Board data={data} clickHandler={clickHandler} />
 
             <div className="controls">
                 <button onClick={resetBoard}>RESET</button>
                 <button onClick={undoFunction}>UNDO</button>
             </div>
-            
-            {
-                winner === null ?
-                    (<div className="player">
-                        PLAYER: {isXnext ? 'X' : 'O'}
-                    </div>) :
-                    (<div className="player">
-                        WINNER: {winner}
-                    </div>)
-
-            }
-            
-            <Board data={data} clickHandler={clickHandler} />
 
             <footer>Made by <a href="http://nirmitcodes.netlify.app" target="_blank" rel='noreferrer'>Nirmit</a></footer>
 
